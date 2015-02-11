@@ -1,3 +1,3 @@
 score = function(data, output){
-  return(mean((data$meta$testset[,-1]%*%(data$meta$betatrue-output))^2))
+  return(10000*sum((output-data$meta$mu)^2)/sum(data$meta$mu^2))
 }
