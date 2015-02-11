@@ -1,7 +1,6 @@
 #define your datamaker functions in .R files in the datamaker subdirectory
 #each datamaker should take input seed (integer) and args (list), and output a list with names elements meta and input
 #the format of the meta and input elements should be defined in the README
-library(MASS)
 
 
 
@@ -92,7 +91,7 @@ datamaker = function(seed,args){
   }
   
   sig.true=sigma/mean(sigma)*sd(mu)/rsnr^2
-  x.data=rnorm(n,mu.sig.true)
+  x.data=rnorm(n,mu,sig.true)
   sig.est=sqrt(2/(3*(n-2))*sum((1/2*x.data[1:(n-2)]-x.data[2:(n-1)]+1/2*x.data[3:n])^2))
   
   meta=list(mu=mu)

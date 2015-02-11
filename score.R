@@ -1,3 +1,5 @@
 score = function(data, output){
-  return(10000*sum((output-data$meta$mu)^2)/sum(data$meta$mu^2))
+  mise=10000*sum((output-data$meta$mu)^2)/sum(data$meta$mu^2)
+  return(list(mise=mise))
+  #return(10000*sum((output-data$meta$mu)^2)/sum(data$meta$mu^2))
 }
