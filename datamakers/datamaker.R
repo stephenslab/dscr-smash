@@ -5,7 +5,8 @@
 
 
 datamaker = function(seed,args){
-
+  set.seed(seed)
+  
   n=args$n
   meanfn=args$meanfn
   varfn=args$varfn
