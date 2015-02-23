@@ -8,9 +8,9 @@ library(wavethresh)
 #Make sure to add path to methods folder in matlab!
 
 
-tithresh.homo.wrapper = function(input,args){
+sure.homo.wrapper = function(input,args){
   write(input$x,"data/ml_in.txt",ncolumns=length(input$x))
-  system("matlab -nodisplay -nodesktop -r \"run('methods/tithresh_matlab.m')\"")
+  system("matlab -nodisplay -nodesktop -r \"run('methods/sure_matlab.m')\"")
   if(Sys.info()['sysname']=="Windows"){
     while (!file.exists("data/ml_out.csv")) {
       Sys.sleep(5)
