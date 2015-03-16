@@ -18,12 +18,12 @@ This DSC uses the following formats:
 `meta: list(mu [vector])` #mu contains the true values of \mu_i as defined above
 
 
-`output: an estimated \mu [vector]` 
+`output: an estimate of \mu [vector]` 
 
 
 # Scores
 
-The performance of a method is scored by the 10000*\sum((\mu_i-\mu-hat_i)^2)/\sum(\mu_i^2), where \mu is the true mean function and \mu-hat is the estimated mean function
+The performance of a method is scored by the 10000*sum((\mu_i-\mu-hat_i)^2)/sum(\mu_i^2), where \mu is the true mean function and \mu-hat is the estimated mean function
 
 See [score.R](score.R).
 
