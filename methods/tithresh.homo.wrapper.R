@@ -7,7 +7,12 @@ library(wavethresh)
 #Make sure to add path to bin directory in matlab to R's path variable using add_path()
 #Make sure to add path to methods folder in matlab!
 
-
+#runs wavelet denoising with TI-thresholding in matlab, assuming constant variance
+#inputs:
+#input: a list containing x: the data, sig.true the true sigma values, and sig.est: the estimated sigma values
+#args: a list containing family and filter.number, which determine the wavelet basis used
+#
+#returns the estimated mean function
 tithresh.homo.wrapper = function(input,args){
   write(input$x,"data/ml_in.txt",ncolumns=length(input$x))
   system("matlab -nodisplay -nodesktop -r \"run('methods/tithresh_matlab.m')\"")

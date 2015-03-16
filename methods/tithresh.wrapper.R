@@ -3,12 +3,12 @@
 #the output should be a list of the appropriate "output" format (defined in the README)
 library(smash)
 
-#performs naive elastic net with K-fold CV using package "elasticnet"
+#runs wavelet denoising with TI-thresholding in matlab and jointly estimates the variance function
 #inputs:
-#input: a matrix with the first column being the y values
-#args: a list with elements "nfolds" for the number of folds used in CV, and "lambda" for the grid of lambda values used for one of the dimensions in two-fold CV
+#input: a list containing x: the data, sig.true the true sigma values, and sig.est: the estimated sigma values
+#args: a list containing family and filter.number, which determine the wavelet basis used, and method: used to estimate the variance function, using either "rmad" or "smash"
 #
-#returns the estimated coefficients beta
+#returns the estimated mean function
 tithresh.wrapper = function(input,args){
     mu.est=ti.thresh(input$x,method=args$method,filter.number=args$filter.number,family=args$family)
     return(mu.est)

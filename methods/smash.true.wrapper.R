@@ -3,12 +3,12 @@
 #the output should be a list of the appropriate "output" format (defined in the README)
 library(smash)
 
-#performs naive elastic net with K-fold CV using package "elasticnet"
+#runs wavelet shrinkage method SMASH with the true variance known
 #inputs:
-#input: a matrix with the first column being the y values
-#args: a list with elements "nfolds" for the number of folds used in CV, and "lambda" for the grid of lambda values used for one of the dimensions in two-fold CV
+#input: a list containing x: the data, sig.true the true sigma values, and sig.est: the estimated sigma values
+#args: a list containing family and filter.number, which determine the wavelet basis used
 #
-#returns the estimated coefficients beta
+#returns the estimated (posterior mean) mean function
 smash.true.wrapper = function(input,args){
     mu.est=ashsmooth.gaus(input$x,input$sig.true,filter.number=args$filter.number,family=args$family)
     return(mu.est)

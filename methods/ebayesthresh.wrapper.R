@@ -4,12 +4,12 @@
 library(EbayesThresh)
 library(wavethresh)
 
-#performs naive elastic net with K-fold CV using package "elasticnet"
+#runs wavelet denoising using the Bayesian shrinkage/thresholding procedure EbayesThresh, assuming constant variance
 #inputs:
-#input: a matrix with the first column being the y values
-#args: a list with elements "nfolds" for the number of folds used in CV, and "lambda" for the grid of lambda values used for one of the dimensions in two-fold CV
+#input: a list containing x: the data, sig.true the tr:ue sigma values, and sig.est: the estimated sigma values
+#args: a list containing family and filter.number, which determine the wavelet basis used
 #
-#returns the estimated coefficients beta
+#returns the estimated (posterior median) mean function
 ebayesthresh.wrapper = function(input,args){
   if(is.null(args$filter.number))
     args$filter.number=10

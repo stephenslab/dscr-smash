@@ -1,29 +1,29 @@
-# dscr-enet
-A simulation study of large-scale regression methods as described in Zou & Hastie (2005)
+# dscr-smash
+A simulation study comparing the wavelet shrinkage procedure SMASH (Xing and Stephens) and other popular wavelet denoising procedures
 
 # Background 
 
 For a general introduction to DSCs, see [here](https://github.com/stephens999/dscr/blob/master/intro.md).
 
-In this simulation study, we aim to compare several methods for fitting a linear model of the form Y=XB+e, where y is a n by 1 vector of responses, X is a n by p matrix of predictors, B is a p by 1 vector of unknown coefficients and e is a n by 1 vector of iid Gaussian noise. Although the problem as described is a generic one, the methods in this study aim to provide some level of variable selection, and the vector B typically contains a substantial number of zeroes. 
+In this simulation study, we aim to compare several methods for performing nonparametric regression in the Gaussian case. The problem is of the form Y_i=\mu_i+\epsilon_i, i=1,...,n, where \mu is the underlying mean function and assumed to be "smooth", and \epsilon_i's are independent Gaussian noise with mean 0 and variance \sigma_i^2. The goal is to recover \mu as accurately as possible given Y.
 
-The simulation schemes all contain a training set and a test set. The models are trained on the training set and an estimated vector of coefficients Bhat is returned. The performance of a method is then determined by the quantity E((X* Bhat-X* B)^2), where X* are the predictors in the test set.
+The simulation schemes cover a wide range of different mean and variance functions (\mu and \sigma), as well as different signal to noise ratios (SNRs). The various methods are run and the resulting estimate of \mu is scored using the mean integrated squared error (MISE), which is simply the standard mean squared error rescaled appropriately.
 
 # Input, meta and output formats
 
 This DSC uses the following formats:
 
-`input: an ntrain by p+1 matrix of training data [matrix]` #ntrain is the number of observations in the training set, and p is the number of predictors. The first column of the matrix contains the Y values in the training set, and the rest of the matrix contains the X values.
+`input: list(x [vector], sig.true [vector], sig.est [vector])` #x is the vector of observations. sig.true contains the true values of \sigma_i, and sig.est is an estimate of \sigma under the assumption that all \sigma_i's are equal.
 
-`meta: list(testset [matrix], betatrue [vector])` #testset is an ntest by p+1 matrix of test data, where ntest is the number of observations in the test set, and p is the number of predictors. The first column of the matrix contains the Y values in the test set, and the rest of the matrix contains the X values. betatrue is a p by 1 vector, which is simply the true B from whence the observations are generated from.
+`meta: list(mu [vector])` #mu contains the true values of \mu_i as defined above
 
 
-`output: an estimated vector of coefficients for B [vector]` 
+`output: an estimated \mu [vector]` 
 
 
 # Scores
 
-The performance of a method is scored by the quantity median(Ehat((X* Bhat-X* B)^2)). Here X* are the predictors in the test set, Ehat denotes the sample average, and the median is computed over all runs of a given simulation scheme (ie different seeds).
+The performance of a method is scored by the 10000*\sum((\mu_i-\mu-hat_i)^2)/\sum(\mu_i^2), where \mu is the true mean function and \mu-hat is the estimated mean function
 
 See [score.R](score.R).
 
