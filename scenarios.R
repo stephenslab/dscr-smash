@@ -16,4 +16,4 @@ for(i in 1:dim(design)[1]){
 }
 
 #scenarios=list()
-#scenarios[[1]]=list(name="sp.1.v1",fn=datamaker,args=list(n=1024,meanfn="spikes",varfn=1,rsnr=1),seed=1)
+#scenarios[[1]]=list(name="sp.1.v1",fn=datamaker,args=list(n=1024,meanfn="spikes",varfn=1,rsnr=1),seed=1:100)
