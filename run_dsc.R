@@ -6,5 +6,5 @@ source("methods.R")
 source("score.R")
 res=run_dsc(dsc_smash)
 
-
+save(res,file="res.Robj")
 
