@@ -9,4 +9,5 @@ source("score.R")
 res=run_dsc(dsc_smash)
 
 save(res,file="res.Robj")
+save.image("res.RData")
 
