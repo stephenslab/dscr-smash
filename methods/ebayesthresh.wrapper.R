@@ -19,7 +19,7 @@ ebayesthresh.wrapper = function(input,args){
   n=length(input$x)
   J=log2(n)
   x.w <- wd(input$x, args$filter.number, args$family, type = "station")
-  x.w <- ebayesthresh.wavelet(x.w, vscale = noise.level, prior = "laplace", a = NA, threshrule = "mean")
+  x.w <- ebayesthresh.wavelet(x.w, vscale = input$sig.est, prior = "laplace", threshrule = "mean")
   mu.est=AvBasis(convert(x.w))
   return(mu.est)
 }
