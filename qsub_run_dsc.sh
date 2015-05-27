@@ -1,4 +1,4 @@
-MEM=10g
+MEM=20g
 
 LOG_DIR="$HOME/dscr-smash/logs/"
 if [ ! -d "${LOG_DIR}" ]; then
