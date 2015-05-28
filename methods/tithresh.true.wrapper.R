@@ -9,7 +9,7 @@ library(smash)
 #args: a list containing family and filter.number, which determine the wavelet basis used
 #
 #returns the estimated mean function
-tithresh.true.wrapper = function(input,args){
-    mu.est=ti.thresh(input$x,sigma=input$sig.true,filter.number=args$filter.number,family=args$family)
-    return(mu.est)
-}
+tithresh.true.wrapper = function(input, args) {
+  mu.est = ti.thresh(input$x, sigma = input$sig.true, filter.number = args$filter.number, family = args$family)
+  return(mu.est)
+} 

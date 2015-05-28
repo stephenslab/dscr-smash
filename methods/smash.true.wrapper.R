@@ -9,7 +9,7 @@ library(smash)
 #args: a list containing family and filter.number, which determine the wavelet basis used
 #
 #returns the estimated (posterior mean) mean function
-smash.true.wrapper = function(input,args){
-    mu.est=ashsmooth.gaus(input$x,input$sig.true,filter.number=args$filter.number,family=args$family)
-    return(mu.est)
-}
+smash.true.wrapper = function(input, args) {
+  mu.est = ashsmooth.gaus(input$x, input$sig.true, filter.number = args$filter.number, family = args$family)
+  return(mu.est)
+} 
