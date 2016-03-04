@@ -9,6 +9,10 @@ In this simulation study, we aim to compare several methods for performing nonpa
 
 The simulation schemes cover a wide range of different mean and variance functions (\mu and \sigma), as well as different signal to noise ratios (SNRs). The various methods are run and the resulting estimate of \mu is scored using the mean integrated squared error (MISE), which is simply the standard mean squared error rescaled appropriately.
 
+# Additional Information
+
+The results from the simulation study is saved both as an R object (res.Robj) and an R image file (res.RData). graphs.Rmd contains the code for running an RShiny app that allows users to interactively view details results from the simulation study. For more information on the RShiny output refer to graphs.Rmd.
+
 # Input, meta and output formats
 
 This DSC uses the following formats:
