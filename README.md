@@ -53,3 +53,8 @@ Each datamaker function must return a `list(meta,input)` where `meta` and `input
 (defined above).
 
 
+
+(NB: results run with the following versions of the softwares:
+ashr commit: bf9cca351d7cf804b67a56552f8057b3af7c11cb;
+ashwave commit: e59bdebb61ae06a6459c9248a5167178fe0150df)
+
