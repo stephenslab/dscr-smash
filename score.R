@@ -5,4 +5,4 @@ score = function(data, output) {
   return(list(mise = mise))
   # return(10000*sum((output-data$meta$mu)^2)/sum(data$meta$mu^2))
 }
-addScore(dsc_smash, score, "mise") 
+add_score(dsc_smash, score, "mise") 

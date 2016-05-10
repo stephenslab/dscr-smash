@@ -79,7 +79,7 @@ arg.list <- function(name, named.method, blank.arglist) {
 add.method.by.flags <- function(row) {
     method.name <- as.character(row$name)
     
-    addMethod(dsc_smash,
+    add_method(dsc_smash,
               name = method.name,
               fn = eval(fxn.wrapper(method.name, row$named.method)),
               args = arg.list(method.name, row$named.method, row$blank.arglist))
