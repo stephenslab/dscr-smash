@@ -1,8 +1,6 @@
 library(dscr)
 
-setwd("~/dscr-smash")
-
-dsc_smash = new_dsc("mean_function_estimation", "~/dscr-smash")
+dsc_smash = new_dsc("mean_function_estimation", "dscr-smash-output")
 source("scenarios.R")
 source("methods.R")
 source("score.R")

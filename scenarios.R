@@ -13,7 +13,7 @@ design = gen.factorial(c(length(varfn), length(rsnr), length(meanfn)), center = 
 for (i in 1:dim(design)[1]) {
   scenario.name = paste(meanfn.short[design[i, 3]], rsnr[design[i, 2]]^2, varfn.short[design[i, 1]], sep = ".")
   scenario.args = list(n = 1024, rsnr = rsnr[design[i, 2]], meanfn = meanfn[[design[i, 3]]], varfn = varfn[[design[i, 1]]])
-  addScenario(dsc_smash, name = scenario.name, fn = gaussian.1d, args = scenario.args, seed = 1:100)
+  add_scenario(dsc_smash, name = scenario.name, fn = gaussian.1d, args = scenario.args, seed = 1:100)
 }
 
 # scenarios=list()
