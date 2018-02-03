@@ -1,5 +1,5 @@
 # dscr-smash
-A simulation study comparing the wavelet shrinkage procedure SMASH (Xing and Stephens) and other popular wavelet denoising procedures
+A simulation study comparing the wavelet shrinkage procedure SMASH (Xing, Carbonetto and Stephens (2018)) and other popular wavelet denoising procedures.
 
 # Background 
 
