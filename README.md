@@ -17,7 +17,6 @@ library(devtools)
 install_github("zrxing/dscr-smash")
 ```
 
-
 # To reproduce results from Xing & Stephens (2016)
 
 * Clone/Fork+Clone this repository.
@@ -30,26 +29,6 @@ install_github("zrxing/dscr-smash")
 * Upon completion results will be saved as both as an R object (res.Robj) and an R image file (res.RData). 
 * To visualize the simulation results using the interactive RShiny plot, open graphs.Rmd in RStudio and click on "Run Document". Additional description is contained within graphs.Rmd.
 
-
-# To add new test functions to the simulation study
-
-* Add in the relevant test functions in datamakers/datamaker.R.
-* Modify scenarios.R by adding the functions to ```meanfn``` or ```varfn``` as appropriate. Add function names to ```meanfn.short``` or ```varfn.short``` where needed.
-* If a new SNR is desired, add a new SNR to ```rsnr```.
-
-# To add new methods to the simulation study
-
-* Write a new R script in methods/ directory.
-* The method must be able to take as input the observed data, the true standard deviation function, as well as an estimated standard deviation function.
-* The method must return a vector of estimated means as the output.
-* Add the method to the list of methods in the `methods.R` file by adding the line ```add_method(dscw_smash, [name_of_method] [method], [method_arguments])```.
-
-# To add a new criterion for assessing performance to the simulation study
-
-* Add a new score function (name it something other than ```score```) that takes as input the vector of estimated means, and returns a scalar indicating performance.
-* Add the line ```add_score(dsc_smash, [score_function], "[name_of_score_function]")```.
-
-
 # Input, meta and output formats
 
 This DSC uses the following formats:
@@ -61,15 +40,11 @@ This DSC uses the following formats:
 
 `output: an estimate of \mu [vector]` 
 
-
 # Scores
 
 The performance of a method is scored by the quantity 10000*sum((\mu_i-\mu-hat_i)^2)/sum(\mu_i^2), where \mu is the true mean function and \mu-hat is the estimated mean function
 
 See [score.R](score.R).
-
-
-
 
 (NB: results run with the following versions of the softwares:
 ashr commit: bf9cca351d7cf804b67a56552f8057b3af7c11cb;

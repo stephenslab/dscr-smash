@@ -1,0 +1,4 @@
+notes
+=====
+
++ I'm using ashr 2.2-7 and smashr 1.2-0.
