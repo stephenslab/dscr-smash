@@ -1,14 +1,7 @@
-# define your methods in .R files like this one in the methods subdirectory each method should take arguments input and
-# args, like the example the output should be a list of the appropriate 'output' format (defined in the README)
-library(wavethresh)
-
-# Make sure to add path to bin directory in matlab to R's path variable using add_path() 
-# Make sure to add path to methods folder in matlab!
-
-
 postmean.homo.wrapper = function(input, args) {
   write(input$x, "input/ml_in.txt", ncolumns = length(input$x))
-  system("matlab -nodisplay -nodesktop -r \"run('methods/postmean_matlab.m')\"")
+  system(paste(matlab.exec," -r \"run('methods/postmean_matlab.m')\""),
+         ignore.stdout = TRUE)
   if (Sys.info()["sysname"] == "Windows") {
     while (!file.exists("input/ml_out.csv")) {
       Sys.sleep(5)

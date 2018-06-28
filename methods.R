@@ -1,27 +1,4 @@
-sourceDir("methods")
-
-# methods=list()
-# 
-# methods[[1]] = list(name="ebayesthresh",fn=ebayesthresh.wrapper,args=list())
-# methods[[2]] = list(name="bams.homo.s8",fn=bams.homo.wrapper,args=list())
-# methods[[3]] = list(name="blockjs.homo.s8",fn=blockjs.homo.wrapper,args=list())
-# methods[[4]] = list(name="neighblock.homo.s8",fn=neighblock.homo.wrapper,args=list())
-# methods[[5]] = list(name="sure.homo.s8",fn=sure.homo.wrapper,args=list())
-# methods[[6]] = list(name="postmean.homo.s8",fn=postmean.homo.wrapper,args=list())
-# methods[[7]] = list(name="tithresh.homo.s8",fn=tithresh.homo.wrapper,args=list())
-# methods[[8]] = list(name="smash.homo.haar",fn=smash.homo.wrapper,args=list(filter.number=1,family="DaubExPhase"))
-# methods[[9]] = list(name="smash.homo.s8",fn=smash.homo.wrapper,args=list(filter.number=8,family="DaubLeAsymm"))
-# methods[[10]] = list(name="smash.haar",fn=smash.wrapper,args=list(filter.number=1,family="DaubExPhase"))
-# methods[[11]] = list(name="smash.s8",fn=smash.wrapper,args=list(filter.number=8,family="DaubLeAsymm"))
-# methods[[12]] = list(name="smash.jash",fn=smash.jash.wrapper,args=list(filter.number=8,family="DaubLeAsymm"))
-# methods[[13]] = list(name="tithresh.rmad.haar",fn=tithresh.wrapper,args=list(method="rmad",filter.number=1,family="DaubExPhase"))
-# methods[[14]] = list(name="tithresh.rmad.s8",fn=tithresh.wrapper,args=list(method="rmad",filter.number=8,family="DaubLeAsymm"))
-# methods[[15]] = list(name="tithresh.smash.haar",fn=tithresh.wrapper,args=list(method="smash",filter.number=1,family="DaubExPhase"))
-# methods[[16]] = list(name="tithresh.smash.s8",fn=tithresh.wrapper,args=list(method="smash",filter.number=8,family="DaubLeAsymm"))
-# methods[[17]] = list(name="smash.true.haar",fn=smash.true.wrapper,args=list(filter.number=1,family="DaubExPhase"))
-# methods[[18]] = list(name="smash.true.s8",fn=smash.true.wrapper,args=list(filter.number=8,family="DaubLeAsymm"))
-# methods[[19]] = list(name="tithresh.true.haar",fn=tithresh.true.wrapper,args=list(filter.number=1,family="DaubExPhase"))
-# methods[[20]] = list(name="tithresh.true.s8",fn=tithresh.true.wrapper,args=list(filter.number=8,family="DaubLeAsymm"))
+source_dir("methods")
 
 parse.period.delimited.name <- function(name) {
     return(strsplit(name, ".", fixed = TRUE)[[1]])
@@ -90,7 +67,6 @@ add.method.by.flags <- function(row) {
 # list. The tithresh.rmad and tithresh.smash methods put the
 # penultimate word in the argument list instead of using separate
 # wrappers.
-
 methods <- data.frame(list(name = c("ebayesthresh",
                                     "bams.homo.s8",
                                     "blockjs.homo.s8",
@@ -118,5 +94,5 @@ methods$named.method[13:16] = TRUE
 methods$blank.arglist = FALSE
 methods$blank.arglist[1:7] = TRUE
 
-# Add the methods to the DSC
+# Add the methods to the DSC.
 by(methods, 1:nrow(methods), add.method.by.flags)

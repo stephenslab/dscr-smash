@@ -1,10 +1,3 @@
-addpath('~/WavDen/codes');
-addpath(genpath('~/Wavelab850'))
-cd('~/dscr-smash/input');
-
-%add path to WavDen and Wavelab to matlab
-%cd('D:/Grad School/GitHub/dscr-smash/input');
-load('ml_in.txt');
+load('../input/ml_in.txt');
 est = recTI(ml_in);
-csvwrite('ml_out.csv', est);
-exit
+csvwrite('../input/ml_out.csv',est);

@@ -1,8 +1,3 @@
-# define your datamaker functions in .R files in the datamaker subdirectory each datamaker should take input
-# seed (integer) and args (list), and output a list with names elements meta and input the format of the meta
-# and input elements should be defined in the README
-
-
 spikes.fn = function(t, type) {
   spike.f = function(x) (0.75 * exp(-500 * (x - 0.23)^2) + 1.5 * exp(-2000 * (x - 0.33)^2) + 3 * exp(-8000 * (x - 0.47)^2) + 2.25 * exp(-16000 * (x - 0.69)^2) + 0.5 * exp(-32000 * (x - 0.83)^2))
   fn = spike.f(t)
