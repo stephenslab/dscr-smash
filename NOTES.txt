@@ -23,6 +23,9 @@ notes
    - WaveLab 850
    - WavDen (no version number is given)
 
++ Note that there was a bug in blockJS.m; I've included the MALTAB
+  code with the bug fix.m.
+
 + Steps I took to run code:
    - Launch R.
    - Make sure working directory is the root of the git repository.

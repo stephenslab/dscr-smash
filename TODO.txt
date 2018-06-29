@@ -7,3 +7,5 @@ to do
   setup instructions.
 
 * Add sessionInfo() to README.
+
+* Fix system statements that use 'rm' command.

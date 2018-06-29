@@ -5,6 +5,6 @@
 #
 #returns the estimated (posterior mean) mean function
 smash.jash.wrapper = function(input, args) {
-  mu.est = ashsmooth.gaus(input$x, v.basis = TRUE, filter.number = args$filter.number, family = args$family, jash = TRUE)
+  mu.est = smash.gaus(input$x, v.basis = TRUE, filter.number = args$filter.number, family = args$family, jash = TRUE)
   return(mu.est)
 } 
