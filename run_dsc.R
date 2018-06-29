@@ -13,7 +13,7 @@ matlab.exec <- "matlab -nodisplay -nodesktop"
 # --------------
 cat("Constructing DSC.\n")
 dscr.path <- getwd()
-dsc_smash = new_dsc("mean_function_estimation","dscr-smash-output")
+dsc_smash <- new_dsc("mean_function_estimation","dscr-smash-output")
 source("scenarios.R")
 source("methods.R")
 source("score.R")
@@ -21,7 +21,8 @@ source("score.R")
 # RUN THE DSC
 # -----------
 cat("Running DSC.\n")
-res = run_dsc(dsc_smash)
+timing <- system.time(res <- run_dsc(dsc_smash))
+cat("Computation took %d seconds.\n",round(timing["elapsed"]))
 
 # SAVE RESULTS TO FILE
 # --------------------
