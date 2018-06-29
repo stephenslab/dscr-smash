@@ -1,21 +1,21 @@
 source_dir("methods")
 
 parse.period.delimited.name <- function(name) {
-    return(strsplit(name, ".", fixed = TRUE)[[1]])
+  return(strsplit(name, ".", fixed = TRUE)[[1]])
 }
 
 build.period.delimited.name <- function(words) {
-    return(paste(words, collapse = "."))
+  return(paste(words, collapse = "."))
 }
 
 suffix <- function(name) {
-    words <- parse.period.delimited.name(name)
-    return(words[length(words)])
+  words <- parse.period.delimited.name(name)
+  return(words[length(words)])
 }
 
 remove.suffix <- function(name) {
-    words <- parse.period.delimited.name(name)
-    return(build.period.delimited.name(words[1:(length(words) - 1)]))
+  words <- parse.period.delimited.name(name)
+  return(build.period.delimited.name(words[1:(length(words) - 1)]))
 }
 
 fxn.wrapper <- function(name, named.method) {
@@ -43,8 +43,9 @@ arg.list <- function(name, named.method, blank.arglist) {
             args$filter.number <- 1
             args$family <- "DaubExPhase"
         } else {
+            
             # This covers a suffix of "s8" but also the case
-            # "smash.jash"
+            # "smash.jash".
             args$filter.number <- 8
             args$family <- "DaubLeAsymm"
         }
@@ -54,12 +55,11 @@ arg.list <- function(name, named.method, blank.arglist) {
 }
 
 add.method.by.flags <- function(row) {
-    method.name <- as.character(row$name)
-    
-    add_method(dsc_smash,
-              name = method.name,
-              fn = eval(fxn.wrapper(method.name, row$named.method)),
-              args = arg.list(method.name, row$named.method, row$blank.arglist))
+  method.name <- as.character(row$name)
+  add_method(dsc_smash,
+             name = method.name,
+             fn   = eval(fxn.wrapper(method.name,row$named.method)),
+             args = arg.list(method.name,row$named.method,row$blank.arglist))
 }
 
 # Define methods and flags used to name the function wrappers and
@@ -88,11 +88,11 @@ methods <- data.frame(list(name = c("ebayesthresh",
                                     "tithresh.true.haar",
                                     "tithresh.true.s8")))
 
-methods$named.method = FALSE
-methods$named.method[13:16] = TRUE
+methods$named.method <- FALSE
+methods$named.method[13:16] <- TRUE
 
-methods$blank.arglist = FALSE
-methods$blank.arglist[1:7] = TRUE
+methods$blank.arglist <- FALSE
+methods$blank.arglist[1:7] <- TRUE
 
 # Add the methods to the DSC.
-by(methods, 1:nrow(methods), add.method.by.flags)
+by(methods,1:nrow(methods),add.method.by.flags)
