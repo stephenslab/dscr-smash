@@ -6,7 +6,8 @@ library(smashr)
 
 # SCRIPT PARAMETERS
 # -----------------
-# TO DO: Explain here what this is for.
+# This specifies the command to start MATLAB. Note that the -r option
+# is added to this command to run the methods implemented in MATLAB.
 matlab.exec <- "matlab -nodisplay -nodesktop"
 
 # DEFINE THE DSC
@@ -22,11 +23,9 @@ source("score.R")
 # -----------
 cat("Running DSC.\n")
 timing <- system.time(res <- run_dsc(dsc_smash))
-cat("Computation took %d seconds.\n",round(timing["elapsed"]))
+cat(sprintf("Computation took %d seconds.\n",round(timing["elapsed"])))
 
 # SAVE RESULTS TO FILE
 # --------------------
-# TO DO: Fix this.
 cat("Saving DSC results to file.\n")
-save(res,file = "res.Robj")
 save.image("res.RData")
