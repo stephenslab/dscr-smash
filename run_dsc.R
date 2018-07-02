@@ -28,4 +28,4 @@ cat(sprintf("Computation took %d seconds.\n",round(timing["elapsed"])))
 # SAVE RESULTS TO FILE
 # --------------------
 cat("Saving DSC results to file.\n")
-save.image("res.RData")
+save(list = c("dsc_smash","res"),file = "res.RData")
